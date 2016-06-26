@@ -42,7 +42,7 @@ def run(args):
             check_result = plugins[plugin_name].check(commited_file, args)
             if not check_result:
                 raise RuntimeError(
-                    "plugin {0} return False for {1}".format(
+                    "plugin {0} returned False for {1}".format(
                         plugin_name, commited_file.path,
                     )
                 )
