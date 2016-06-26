@@ -1,8 +1,8 @@
 """Check correctness of *.ini files."""
 import os
 import fnmatch
-import ConfigParser
-import cStringIO
+from six.moves import configparser
+from six.moves import cStringIO
 
 DEFAULTS = {
     'files': '*.ini',
@@ -14,10 +14,10 @@ def check(file_staged_for_commit, options):
     if not fnmatch.fnmatch(basename, options.ini_files):
         return True
     contents = cStringIO.StringIO(file_staged_for_commit.contents)
-    parser = ConfigParser.RawConfigParser()
+    parser = configparser.RawConfigParser()
     try:
         parser.readfp(contents, file_staged_for_commit.path)
-    except ConfigParser.Error as e:
+    except configparser.Error as e:
         print(e)
         return False
     else:

@@ -29,6 +29,7 @@ setup(
         'pep8-naming',
         'restructuredtext_lint >= 0.6.0',
         'PyYAML',
+        'six'
     ],
     entry_points={
         'console_scripts': [
